@@ -1,20 +1,22 @@
 return {
   {
+    "github/copilot.vim",
+  },
+  {
     "hrsh7th/cmp-nvim-lsp"
   },
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
-      "rafamadriz/friendly-snippets"
+      "rafamadriz/friendly-snippets",
     },
   },
   {
     "hrsh7th/nvim-cmp",
     config = function()
-      require("luasnip.loaders.from_vscode").lazy_load()
-
       local cmp = require("cmp")
+      require("luasnip.loaders.from_vscode").lazy_load()
 
       cmp.setup({
         snippet = {
@@ -24,7 +26,7 @@ return {
         },
         window = {
           completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered()
+          documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -34,12 +36,11 @@ return {
           ["<CR>"] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          -- { name = "nvim_lps" },
-          { name = "luasnip" }
-        }),
-        {
+          { name = "nvim_lsp" },
+          { name = "luasnip" }, -- For luasnip users.
+        }, {
           { name = "buffer" },
-        },
+        }),
       })
     end,
   },

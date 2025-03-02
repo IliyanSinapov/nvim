@@ -34,9 +34,15 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
-      lspconfig.jdtls.setup({})
-      lspconfig.eslint.setup({})
-      lspconfig.ts_ls.setup({})
+      lspconfig.jdtls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.eslint.setup({
+        capabilities = capabilities
+      })
+      lspconfig.ts_ls.setup({
+        capabilities = capabilities
+      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "gD", vim.lsp.buf.definition, {})
