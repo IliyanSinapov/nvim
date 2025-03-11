@@ -1,5 +1,5 @@
 vim.cmd("set expandtab")
-vim.opt.tabstop = 2
+vim.opt.tabstop = 4
 vim.opt.shiftwidth = 2
 vim.opt.softtabstop = 2
 vim.g.mapleader = " "
